@@ -33,9 +33,9 @@ public class ResponderModel {
             LOG.info("Pasa numero");
             ArrayList<String> numbers = new ArrayList<String>();
             Matcher listNumbers = Pattern.compile("-?\\d+").matcher(question);
-            while (m.find()) {
-                numbers.add(matcher.group());
-                LOG.info("Numero: " + matcher.group());
+            while (listNumbers.find()) {
+                numbers.add(listNumbers.group());
+                LOG.info("Numero: " + listNumbers.group());
             }
 
             Collections.sort(numbers);
