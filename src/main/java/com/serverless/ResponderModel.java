@@ -29,6 +29,12 @@ public class ResponderModel {
             }
             return matcher.group(2);
         }
+
+        matcher = Pattern.compile(".*what is (\\d+)  plus (\\d+)").matcher(question);
+        if (matcher.matches()) {
+            return String.valueOf(Integer.parseInt(matcher.group(1)) * Integer.parseInt(matcher.group(2)));
+        }
+
         
         return teamName;
     }
