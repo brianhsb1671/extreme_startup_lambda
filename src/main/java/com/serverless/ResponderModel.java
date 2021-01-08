@@ -26,7 +26,7 @@ public class ResponderModel {
             return String.valueOf(Integer.parseInt(sumMatcher.group(1)) + Integer.parseInt(sumMatcher.group(2)));
         }
 
-        Matcher largestMatcher = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+) ").matcher(question);
+        Matcher largestMatcher = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+)").matcher(question);
         if (largestMatcher.matches()) {
             if(Integer.parseInt(largestMatcher.group(1)) >= Integer.parseInt(largestMatcher.group(2))){
                 return largestMatcher.group(1);
