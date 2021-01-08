@@ -40,9 +40,10 @@ public class ResponderModel {
 
             Collections.sort(numbers);
 
+
             LOG.info("Numeros: " + numbers);
 
-            return numbers.get(numbers.size() - 1);
+            return numbers.get(numbers.size());
         }
 
         Matcher plusMatcher = Pattern.compile(".*what is (\\d+) plus (\\d+)").matcher(question);
@@ -50,7 +51,6 @@ public class ResponderModel {
             return String.valueOf(Integer.parseInt(plusMatcher.group(1)) + Integer.parseInt(plusMatcher.group(2)));
         }
 
-        
         return teamName;
     }
 }
