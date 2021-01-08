@@ -53,7 +53,7 @@ public class ResponderModel {
             return String.valueOf(Integer.parseInt(multMatcher.group(1)) * Integer.parseInt(multMatcher.group(2)));
         }
 
-        Matcher squareNumber = Pattern.compile(".*what is (\\d+) multiplied by (\\d+)").matcher(question);
+        Matcher squareNumber = Pattern.compile(".* which of the following numbers is both a square and a cube: (\\d+), (\\d+)").matcher(question);
         if (squareNumber.matches()) {
 
             double sqrt=Math.sqrt(Integer.parseInt(squareNumber.group(1)));
