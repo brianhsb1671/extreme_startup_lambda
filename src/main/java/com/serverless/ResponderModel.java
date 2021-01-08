@@ -43,7 +43,7 @@ public class ResponderModel {
 
             LOG.info("Numeros: " + numbers);
 
-            return numbers.get(numbers.size());
+            return numbers.get(numbers.size() - 1);
         }
 
         Matcher plusMatcher = Pattern.compile(".*what is (\\d+) plus (\\d+)").matcher(question);
@@ -54,6 +54,19 @@ public class ResponderModel {
         Matcher multMatcher = Pattern.compile(".*what is (\\d+) multiplied by (\\d+)").matcher(question);
         if (multMatcher.matches()) {
             return String.valueOf(Integer.parseInt(multMatcher.group(1)) * Integer.parseInt(multMatcher.group(2)));
+        }
+
+        Matcher squareNumber = Pattern.compile(".*what is (\\d+) multiplied by (\\d+)").matcher(question);
+        if (squareNumber.matches()) {
+
+            double sqrt=Math.sqrt(Integer.parseInt(squareNumber.group(1)));
+            double cbrt=Math.cbrt(Integer.parseInt(squareNumber.group(1)));
+            if((sqrt - Math.floor(sqrt)) == 0 && (cbrt - Math.floor(cbrt) == 0) ){
+                return squareNumber.group(1);
+            }else
+            {
+                return  squareNumber.group(2);
+            }
         }
 
         return teamName;
