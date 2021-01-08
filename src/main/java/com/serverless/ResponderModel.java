@@ -17,22 +17,22 @@ public class ResponderModel {
             return teamName;
         }
 
-        matcher = Pattern.compile(".*what is the sum of (\\d+) and (\\d+)").matcher(question);
-        if (matcher.matches()) {
-            return String.valueOf(Integer.parseInt(matcher.group(1)) + Integer.parseInt(matcher.group(2)));
+        Matcher sumMatcher = Pattern.compile(".*what is the sum of (\\d+) and (\\d+)").matcher(question);
+        if (sumMatcher.matches()) {
+            return String.valueOf(Integer.parseInt(sumMatcher.group(1)) + Integer.parseInt(sumMatcher.group(2)));
         }
 
-        matcher = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+)").matcher(question);
-        if (matcher.matches()) {
-            if(Integer.parseInt(matcher.group(1)) >= Integer.parseInt(matcher.group(2))){
-                return matcher.group(1);
+        Matcher largestMatcher = Pattern.compile(".*which of the following numbers is the largest: ").matcher(question);
+        if (largestMatcher.matches()) {
+            if(Integer.parseInt(largestMatcher.group(1)) >= Integer.parseInt(largestMatcher.group(2))){
+                return largestMatcher.group(1);
             }
-            return matcher.group(2);
+            return largestMatcher.group(2);
         }
 
-        matcher = Pattern.compile(".*what is (\\d+)  plus (\\d+)").matcher(question);
-        if (matcher.matches()) {
-            return String.valueOf(Integer.parseInt(matcher.group(1)) * Integer.parseInt(matcher.group(2)));
+        Matcher plusMatcher = Pattern.compile(".*what is (\\d+)  plus (\\d+)").matcher(question);
+        if (plusMatcher.matches()) {
+            return String.valueOf(Integer.parseInt(plusMatcher.group(1)) * Integer.parseInt(plusMatcher.group(2)));
         }
 
         
