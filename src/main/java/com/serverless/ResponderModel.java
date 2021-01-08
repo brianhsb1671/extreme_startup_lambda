@@ -1,10 +1,14 @@
 package com.serverless;
 
+import org.apache.log4j.Logger;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ResponderModel {
     private final String teamName = "LosMilagrosos";
+
+    private static final Logger LOG = Logger.getLogger(Handler.class);
 
     public String answer(String question) {
 
@@ -32,6 +36,8 @@ public class ResponderModel {
 
         Matcher plusMatcher = Pattern.compile(".*what is (\\d+)  plus (\\d+)").matcher(question);
         if (plusMatcher.matches()) {
+            LOG.info("**MESSAGE**: " + plusMatcher.group(1));
+            LOG.info("**MESSAGE**: " + plusMatcher.group(2));
             return String.valueOf(Integer.parseInt(plusMatcher.group(1)) * Integer.parseInt(plusMatcher.group(2)));
         }
 
