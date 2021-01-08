@@ -34,7 +34,7 @@ public class ResponderModel {
             return largestMatcher.group(2);
         }
 
-        Matcher plusMatcher = Pattern.compile(".*what is (\\d+)  plus (\\d+)").matcher(question);
+        Matcher plusMatcher = Pattern.compile(".*what is (\\d+) plus (\\d+)").matcher(question);
         if (plusMatcher.matches()) {
             LOG.info("**MESSAGE**: " + plusMatcher.group(1));
             LOG.info("**MESSAGE**: " + plusMatcher.group(2));
