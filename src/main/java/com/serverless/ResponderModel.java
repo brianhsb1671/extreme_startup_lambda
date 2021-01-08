@@ -38,7 +38,7 @@ public class ResponderModel {
         if (plusMatcher.matches()) {
             LOG.info("**MESSAGE**: " + plusMatcher.group(1));
             LOG.info("**MESSAGE**: " + plusMatcher.group(2));
-            return String.valueOf(Integer.parseInt(plusMatcher.group(1)) * Integer.parseInt(plusMatcher.group(2)));
+            return String.valueOf(Integer.parseInt(plusMatcher.group(1)) + Integer.parseInt(plusMatcher.group(2)));
         }
 
         
