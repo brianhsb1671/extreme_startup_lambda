@@ -31,19 +31,16 @@ public class ResponderModel {
         if (question.contains("which of the following numbers is the largest")) {
 
             LOG.info("Pasa numero");
-            ArrayList<String> numbers = new ArrayList<String>();
+            ArrayList<Integer> numbers = new ArrayList<Integer>();
             Matcher listNumbers = Pattern.compile("-?\\d+").matcher(question);
             while (listNumbers.find()) {
-                numbers.add(listNumbers.group());
+                numbers.add(Integer.parseInt(listNumbers.group()));
                 LOG.info("Numero: " + listNumbers.group());
             }
 
-            Collections.sort(numbers);
+            int maxNumber = Collections.max(numbers);
 
-
-            LOG.info("Numeros: " + numbers);
-
-            return numbers.get(numbers.size() - 1);
+            return String.valueOf(maxNumber);
         }
 
         Matcher plusMatcher = Pattern.compile(".*what is (\\d+) plus (\\d+)").matcher(question);
