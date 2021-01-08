@@ -51,6 +51,11 @@ public class ResponderModel {
             return String.valueOf(Integer.parseInt(plusMatcher.group(1)) + Integer.parseInt(plusMatcher.group(2)));
         }
 
+        Matcher multMatcher = Pattern.compile(".*what is (\\d+) multiplied by (\\d+)").matcher(question);
+        if (multMatcher.matches()) {
+            return String.valueOf(Integer.parseInt(multMatcher.group(1)) * Integer.parseInt(multMatcher.group(2)));
+        }
+
         return teamName;
     }
 }
